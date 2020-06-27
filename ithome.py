@@ -1,7 +1,8 @@
 from selenium import webdriver
-driver = webdriver.Chrome("C:/Users/민소연/Downloads/chromedriver_win32_1/chromedriver.exe") #본인의 chrome driver 주소
+driver = webdriver.Chrome("/usr/local/bin/chromedriver") #본인의 chrome driver 주소
 import json
 from collections import OrderedDict
+import threading
 
 file_data = OrderedDict()
 
@@ -22,4 +23,15 @@ def notice():
 	with open('ithome.json', 'w', encoding = "utf-8") as make_file:
 		json.dump(data, make_file, ensure_ascii=False, indent="\t")
 
-notice()
+class Repeat:
+
+	def __init__(self):
+		pass
+
+	def Reithome(self):
+		print("im d w")
+		notice()
+		threading.Timer(3600,self.Reithome).start()
+
+re = Repeat()
+re.Reithome()
