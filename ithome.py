@@ -29,7 +29,6 @@ class Repeat:
 		pass
 
 	def Reithome(self):
-		print("im d w")
 		notice()
 		threading.Timer(3600,self.Reithome).start()
 
